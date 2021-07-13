@@ -47,16 +47,25 @@
   <% for(var i=0; i < rows.length; i++) { %>
   <div class="card col-12 mt-4 mb-4">
     <div class="card-body">
-      <h5 class="card-title"><%= rows[i].doubt_title %></h5>
+      <div class="row">
+        <div class="col-9">
+          <h4 class="card-title"><%= rows[i].doubt_title %></h4>
+        </div>
+        <% if(rows[i].status == 'solved'){ %>
+        <div class="col-3">
+          <a class="btn btn-success mr-sm-4 my-2 px-3">Resolved</a>
+        </div>
+        <% } %>
+      </div>
       <hr/>
       <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
-      <h6 class="card-text text-right"><%= rows[i].doubt_description %><br>
-      <small class="card-subtitle mb-2 text-right text-muted" style="text-align: right;">Created by <%= rows[i].student_id %> at <%= rows[0].creation_timestamp %></small></h6>
+      <h5 class="card-text text-right"><%= rows[i].doubt_description %><br></h5>
+      <p class="card-subtitle mb-2 text-right text-muted" style="text-align: right;">Created by <%= rows[i].student_id %> at <%= rows[0].creation_timestamp %></p>
       <!-- <a class="btn btn-primary" data-toggle="collapse" href="#comment_entry" role="button" aria-expanded="false" aria-controls="commentButton">Add Comment</a> -->
       <hr/>
       <% if(rows[i].status == 'solved'){ %>
-      <h6 class="card-text">Answer is :<br><%= rows[i].solution %><br>
-      <small class="card-subtitle mb-2 text-muted text-right">Answered by <%= rows[i].solved_by %> at <%= rows[i].solve_timestamp %></small></h6>
+      <h5 class="card-text text-start">Answer: <%= rows[i].solution %><br></h5>
+      <p class="card-subtitle mb-2 text-muted text-end" style="text-align: right;">Answered by <%= rows[i].solved_by %> at <%= rows[i].solve_timestamp %></p>
       <hr/>
       <% } %>
       <h5><label for="doubt_id" class="form-label">Comment:</label></h5>
@@ -66,7 +75,7 @@
             <% } else { %>
 
       <% for(var j=0; j < comment_split.length; j++) { %>
-      <p class="card-text mx-4 mp-4 col-5" id="comments" style="50%"><%= commenter_split[j]  %> : <%= comment_split[j]  %></p>
+      <p class="card-text  border-dark-4 mx-4 mp-4 col-5" id="comments" style="50%"><%= commenter_split[j]  %> : <%= comment_split[j]  %></p>
       <hr/>
       <% }}} %>
       <div class="row col-12">

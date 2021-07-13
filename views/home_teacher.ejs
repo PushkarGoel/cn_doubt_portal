@@ -81,23 +81,23 @@
   <table class="table table-striped mp-4">
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">Name</th>
-        <th scope="col">Number of Doubts</th>
-        <th scope="col">Number of Solved Doubts</th>
-        <th scope="col">Number of Escalated Doubts</th>
-        <th scope="col">Average solving time</th>
+        <th scope="col" class="text-center">#</th>
+        <th scope="col" class="text-center">Name</th>
+        <th scope="col" class="text-center">Number of Doubts</th>
+        <th scope="col" class="text-center">Number of Solved Doubts</th>
+        <th scope="col" class="text-center">Number of Escalated Doubts</th>
+        <th scope="col" class="text-center">Average solving time</th>
       </tr>
     </thead>
         <tbody>
       <% for(var i=0; i < rows_ta.length; i++) { %>
         <tr>
           <th scope="row"><%= i+1 %></th>
-          <td><%= rows_ta[i].ta_id %></td>
-          <td><%= rows_ta[i].count_doubt %></td>
-          <td><%= rows_ta[i].count_solved_doubt %></td>
-          <td><%= rows_ta[i].count_escalated_doubt %></td>
-          <td><%= rows_ta[i].avg_doubt_time %></td>
+          <td class="text-center"><%= rows_ta[i].ta_id %></td>
+          <td class="text-center"><%= rows_ta[i].count_doubt %></td>
+          <td class="text-center"><%= rows_ta[i].count_solved_doubt %></td>
+          <td class="text-center"><%= rows_ta[i].count_escalated_doubt %></td>
+          <td class="text-center"><%= rows_ta[i].avg_doubt_time %></td>
         </tr>
       <% } %>
 
