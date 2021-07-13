@@ -50,13 +50,13 @@
       <h5 class="card-title"><%= rows[i].doubt_title %></h5>
       <hr/>
       <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
-      <h6 class="card-text"><%= rows[i].doubt_description %><br>
-      <small class="card-subtitle mb-2 text-muted">Created by <%= rows[i].student_id %> at <%= rows[0].creation_timestamp %></small></h6>
+      <h6 class="card-text text-right"><%= rows[i].doubt_description %><br>
+      <small class="card-subtitle mb-2 text-right text-muted" style="text-align: right;">Created by <%= rows[i].student_id %> at <%= rows[0].creation_timestamp %></small></h6>
       <!-- <a class="btn btn-primary" data-toggle="collapse" href="#comment_entry" role="button" aria-expanded="false" aria-controls="commentButton">Add Comment</a> -->
       <hr/>
       <% if(rows[i].status == 'solved'){ %>
-      <h6 class="card-text">Answer is :<%= rows[i].solution %><br>
-      <small class="card-subtitle mb-2 text-muted">Answered by <%= rows[i].solved_by %> at <%= rows[i].solve_timestamp %></small></h6>
+      <h6 class="card-text">Answer is :<br><%= rows[i].solution %><br>
+      <small class="card-subtitle mb-2 text-muted text-right">Answered by <%= rows[i].solved_by %> at <%= rows[i].solve_timestamp %></small></h6>
       <hr/>
       <% } %>
       <h5><label for="doubt_id" class="form-label">Comment:</label></h5>

@@ -122,7 +122,7 @@ app.get('/display_doubts_student', function(request, response) {
 			}
 			else{
 
-				console.log(results)
+				// console.log(results)
 				response.render('./doubt_feed_student',{rows:results, username:request.session.username});
 			}
 
@@ -254,7 +254,6 @@ app.post('/assign_doubt', function(request, response){
 	connection.query('SELECT * FROM doubt_ta_mapping WHERE action_taken = "assigned" and ta_id = ? ', [request.session.username], function(error, results, fields) { 
 
 		if(results.length != 0){
-			console.log("################here")
 			user_free = false
 			// request.session.alert_ta = "Already a Doubt assigned!"
 			response.redirect(url.format({
@@ -336,7 +335,7 @@ app.get('/check_doubt', function(request, response) {
 app.post('/solve_doubt', function(request, response) {
 
 
-	var doubt_solution = request.body.doubt_solution;
+	var doubt_solution = request.body.answer;
 	var doubt_id = request.body.doubt_id;
 
 	var solve_time = new Date()
