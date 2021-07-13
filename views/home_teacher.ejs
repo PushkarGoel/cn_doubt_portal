@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style type="text/css">
+
+      .card{
+
+        background-color: #B0E0E6  ;
+      }
+
+    </style>
+    <title>Login Doubt Portal</title>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-light bg-light">
+    <div class="row col-12">
+    <div class="mx-4 col-1">
+      <img src="images/cn_logo.jpg" width="30" height="30" alt="">
+    </div>
+    <div class="col-9">
+      <h3>Home- Teacher</h3>
+    </div>
+
+      <div class="col-1 ">
+      <form class="form-inline" action="/logout" method="POST">
+        <button class="btn btn-outline-danger mr-sm-4 my-2 px-3" type="submit">  Logout  </button>
+      </form>
+      </div>
+    </div>
+  </nav>
+    <div class="container">
+    <div class="row col-12 mt-4 mb-4">    
+      <h2>Analytics for Teacher</h2>
+    </div>
+    <div class="card-group">
+  <div class="card mx-4">
+    <div class="card-body">
+      <h5 class="card-title">Number of Doubts</h5>
+    </div>
+    <div class="card-footer">
+      <small ><%= rows.count_doubt %></small>
+    </div>
+  </div>
+  <div class="card mx-4">
+    <div class="card-body">
+      <h5 class="card-title">Number of Solved doubts</h5>
+    </div>
+    <div class="card-footer">
+      <small ><%= rows.count_solved_doubt %></small>
+    </div>
+  </div>
+  <div class="card mx-4">
+    <div class="card-body">
+      <h5 class="card-title">Number of escalated Doubts</h5>
+    </div>
+    <div class="card-footer">
+      <small ><%= rows.count_escalated_doubt %></small>
+    </div>
+  </div>
+    <div class="card mx-4 ">
+    <div class="card-body">
+      <h5 class="card-title">Average Doubt Resolution Time</h5>
+    </div>
+    <div class="card-footer">
+      <small ><%= rows.avg_doubt_time %></small>
+    </div>
+  </div>
+  </div>
+
+</div>
+<br>
+<br>
+<div class="container">
+  <h3> Teaching Assistant Statistics</h3>
+  <br>
+  <br>
+  <table class="table table-striped mp-4">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Number of Doubts</th>
+        <th scope="col">Number of Solved Doubts</th>
+        <th scope="col">Number of Escalated Doubts</th>
+        <th scope="col">Average solving time</th>
+      </tr>
+    </thead>
+        <tbody>
+      <% for(var i=0; i < rows_ta.length; i++) { %>
+        <tr>
+          <th scope="row"><%= i+1 %></th>
+          <td><%= rows_ta[i].ta_id %></td>
+          <td><%= rows_ta[i].count_doubt %></td>
+          <td><%= rows_ta[i].count_solved_doubt %></td>
+          <td><%= rows_ta[i].count_escalated_doubt %></td>
+          <td><%= rows_ta[i].avg_doubt_time %></td>
+        </tr>
+      <% } %>
+
+    </tbody>
+    </table>
+  </div>
+</body>
+</html>
+
+
