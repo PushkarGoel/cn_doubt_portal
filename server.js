@@ -82,7 +82,7 @@ app.post('/auth', function(request, response) {
 	console.log("username is ", username)
 
 	if (username && password) {
-		console.log("db connection is for cleardb" )
+		// console.log("db connection is for cleardb" )
 		connection.query('SELECT * FROM user_credentials WHERE user_name = ? AND password = ?', [username, password], function(error, results, fields) {
 			// console.log("res is ", results, error)
 			if (results.length > 0) {
