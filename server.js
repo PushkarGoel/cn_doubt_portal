@@ -7,12 +7,12 @@ var path = require('path');
 const url= require('url');
 const date = require('date-and-time')
 
-var connection = mysql.createConnection({
-	host     : 'localhost',
-	user     : 'root',
-	password : 'Pushkar@1',
-	database : 'sys'
-});
+// var connection = mysql.createConnection({
+// 	host     : 'localhost',
+// 	user     : 'root',
+// 	password : 'Pushkar@1',
+// 	database : 'sys'
+// });
 
 var connection = mysql.createConnection({
 	host     : 'us-cdbr-east-04.cleardb.com',
@@ -82,6 +82,7 @@ app.post('/auth', function(request, response) {
 	console.log("username is ", username)
 
 	if (username && password) {
+		console.log("db connection is for cleardb" )
 		connection.query('SELECT * FROM user_credentials WHERE user_name = ? AND password = ?', [username, password], function(error, results, fields) {
 			// console.log("res is ", results, error)
 			if (results.length > 0) {
