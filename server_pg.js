@@ -7,18 +7,20 @@ var path = require('path');
 const url= require('url');
 const date = require('date-and-time')
 
+
+const pool = new Pool({
+  user: 'postgres',
+  host: 'localhost',
+  database: 'cn_assignment',
+  password: 'Pushkar@1',
+  port: 5432,
+})
+
 var connection = mysql.createConnection({
 	host     : 'localhost',
 	user     : 'root',
 	password : 'Pushkar@1',
 	database : 'sys'
-});
-
-var connection = mysql.createConnection({
-	host     : 'us-cdbr-east-04.cleardb.com',
-	user     : 'bfc03770354688',
-	password : 'e3b57148',
-	database : 'heroku_f64e0d8537e9c2e'
 });
 
 var app = express();
@@ -82,8 +84,8 @@ app.post('/auth', function(request, response) {
 	console.log("username is ", username)
 
 	if (username && password) {
-		connection.query('SELECT * FROM user_credentials WHERE user_name = ? AND password = ?', [username, password], function(error, results, fields) {
-			// console.log("res is ", results, error)
+		pool.query('SELECT * FROM user_credentials WHERE user_name = $1 AND password = $2', [username, password], function(error, results, fields) {
+			console.log("res is ", results, results.length, error)
 			if (results.length > 0) {
 
 				// console.log(results[0].user_type== 'student')
